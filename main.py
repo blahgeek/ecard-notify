@@ -30,7 +30,8 @@ def collect(username, password):
 
 def notify(username, password, phonenumber):
     today = datetime.today()
-    records = Record.select().where(Record.date == datetime(today.year, today.month, today.day))
+    records = Record.select().where(Record.date == datetime(today.year, today.month, today.day),
+                                    Record.type_ == u'消费')
     total_amount = sum(map(lambda x: x.amount, records))
     logging.info('Total amount for today (%s): %.1f' % (today.strftime('%Y-%m-%d'), total_amount))
     requests.get('http://api.smsbao.com/sms', params={
