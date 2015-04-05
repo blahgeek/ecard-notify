@@ -1,0 +1,10 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# Created by i@BlahGeek.com at 2015-04-05
+
+USERNAME = 'zyk11'
+PASSWORD = 'passwordpassword'
+
+SMSBAO_USERNAME = 'blahgeek'
+SMSBAR_PASSWORD = 'd41d8cd98f00b204e9800998ecf8427e'  # MD5
+SMS_PHONE = '18801237890'
