@@ -48,9 +48,9 @@ if __name__ == '__main__':
 
     scheduler = BlockingScheduler()
     scheduler.add_job(collect, 'interval', (config.USERNAME, config.PASSWORD),
-                      seconds=3600*6)  # Check every 6 hours
+                      seconds=3600*6, timezone='Asia/Shanghai')  # Check every 6 hours
     scheduler.add_job(notify, 'cron', (config.SMSBAO_USERNAME, config.SMSBAO_PASSWORD, config.SMS_PHONE),
-                      hour=15, minute=0)  # Send notification at 15:00:00 every day
+                      hour=23, minute=00, timezone='Asia/Shanghai')  # Send notification at 23:00:00 every day
 
     logging.info('Starting scheduler...')
     try:
