@@ -17,7 +17,7 @@ def collect(username, password):
     exists_records = list(Record.select().order_by(Record.created_date.desc())
                                          .limit(len(records)))
     exists_records += [None, ] * (len(records) - len(exists_records))  # Maybe there's less records in db
-    eq = lambda x, y: x is not None and y is not None and all(getattr(x, key) == getattr(x, key) for key in ecard.Record._fields)
+    eq = lambda x, y: x is not None and y is not None and all(getattr(x, key) == getattr(y, key) for key in ecard.Record._fields)
     delta = 0
     while delta < len(records):
         if all([eq(records[i+delta], exists_records[i]) for i in range(len(records) - delta)]):
@@ -38,7 +38,7 @@ def notify(username, password, phonenumber):
                     'u': username,
                     'p': password,
                     'm': phonenumber,
-                    'c': u'今天你的校园卡一共刷了%.1f块钱～' % total_amount
+                    'c': u'老婆～今天你的校园卡一共刷了%.1f块钱～' % total_amount
                  })
 
 
